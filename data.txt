@@ -1,12 +1,4 @@
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
-import { output } from "../../next.config";
-
-
-export default function Home() {
-
-  const data = [`
-  
-  Main Faqs
+Main Faqs
 
 What programming languages and frameworks does the platform cover?
 Our Frontend Developer Career Path uses HTML, CSS and JavaScript before moving on to React.
@@ -293,26 +285,3 @@ Meet like-minded peers on our Discord Server. Set goals and help each other to s
 
 Power Hours to keep you focused
 A distraction-free, highly focused hour where you work on an important task that moves you forward. Power hours take place in the Scrimba Discord 4x a day in order to suit most time zones. Show up every weekday for a month, and you'll be shocked at how much progress you make!
-`]
-
-
-  const textSpliter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    separators: ['\n\n', '\n', ' ', ''],
-    chunkOverlap: 50
-  })
-  textSpliter.createDocuments(data)
-    .then(output => {
-      console.log('Output:', output);
-    }).catch(err => {
-      console.log(err);
-    })
-
-  return (
-    <>
-      <div>
-        <h1>Home</h1>
-      </div>
-    </>
-  )
-}
